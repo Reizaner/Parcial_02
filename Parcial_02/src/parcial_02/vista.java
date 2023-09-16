@@ -230,7 +230,7 @@ public class vista extends javax.swing.JFrame {
         pacientes.add(new Paciente(10,"Yuuji","Itadori",80,32145423,"vino de onda",false,"INSSSEP"));
         
         
-        
+        /*Recorre un arraylist mediante un foreach, luego mediante un condicional filtro por los dato que me solicitan */
         for(Paciente p: pacientes){
             if(p.getEdad() > 65 && p.getActivo() && p.getObrasocial().toUpperCase().equals("INSSSEP")){
                 System.out.println("El Paciente: "+ p.getNombre()+" "+ p.getApellido()+ " Esta activo y tiene " + p.getObrasocial() );
@@ -244,6 +244,9 @@ public class vista extends javax.swing.JFrame {
         // TODO add your handling code here:
         int cantCamas = 0;
         int cantTeles = 0;
+        
+        
+        /*Carga de Recursos en un array y despues otros dos arrays que contiene lo que respecta a la subclasificacion*/
         ArrayList<Recurso> recursos = new ArrayList<Recurso>();
         ArrayList<String> camas = new ArrayList<String>();
         ArrayList<String> televisores = new ArrayList<String>();
@@ -262,8 +265,10 @@ public class vista extends javax.swing.JFrame {
         recursos.add(new Recurso("Muebles","Camas",camas));
         recursos.add(new Recurso("Electrodomesticos","Televisores",televisores ));
         
+        /*Este for recorre el array que contiene los recursos de la clinica y luego mediante condicionales filtro y cuento por el cual quiero*/
         
         for(Recurso r:recursos){
+            /*En este caso el filtrado es un poco mas especifico que en teles*/
             if(r.getClasificacion().toLowerCase().equals("muebles") && r.getSubclasificacion().toLowerCase().equals("camas")){
                 for(String c:r.getRecurso()){
                     if(c.toLowerCase().equals("una plaza")){
@@ -271,6 +276,7 @@ public class vista extends javax.swing.JFrame {
                     }
                 }
             }
+            /*Aqui solamente obtengo el tamaño del array que contiene todos los televisores una vez que ya encontro la calsificacion que corresponde*/
             if(r.getClasificacion().toLowerCase().equals("electrodomesticos") && r.getSubclasificacion().toLowerCase().equals("televisores")){
                 cantTeles = r.getRecurso().size();
             }
