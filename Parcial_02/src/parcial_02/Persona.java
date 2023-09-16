@@ -14,13 +14,23 @@ abstract class Persona {
     private int id;
     private String nombre;
     private String apellido;
+    private int edad;
     private int dni;
 
-    public Persona(int id,String nombre, String apellido, int dni) {
+    public Persona(int id,String nombre, String apellido,int edad, int dni) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.edad = edad;
         this.dni = dni;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     public Persona() {

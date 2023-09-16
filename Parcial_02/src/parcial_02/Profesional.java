@@ -16,8 +16,8 @@ public class Profesional extends Persona {
     private String matricula;
     private ArrayList<Especialidad> esp;
 
-    public Profesional(int id,String nombre, String apellido, int dni,String matricula, ArrayList esp) {
-        super( id, nombre, apellido, dni);
+    public Profesional(int id,String nombre, String apellido,int edad, int dni,String matricula, ArrayList esp) {
+        super( id, nombre, apellido,edad, dni);
         this.matricula = matricula;
         this.esp = esp;
     }

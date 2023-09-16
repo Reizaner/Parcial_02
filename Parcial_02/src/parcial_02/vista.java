@@ -52,8 +52,18 @@ public class vista extends javax.swing.JFrame {
         });
 
         jButton3.setText("Ejercicio 3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Ejercicio 4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,9 +105,9 @@ public class vista extends javax.swing.JFrame {
         especialidades.add(esp2);
         especialidades.add(esp3);
         
-        Paciente p1 = new Paciente(1,"Luciano","Araujo",42984283,"Mano quebrada");
-        Secretario s1 = new Secretario(1,"Victora","Morales",45795247,"Srecetario general");
-        Paciente p2 = new Paciente(1,"Andrea","Benitez",4298483,"Pie quebrada");
+        Paciente p1 = new Paciente(1,"Luciano","Araujo",21,42984283,"Mano quebrada",true);
+        Secretario s1 = new Secretario(1,"Victora","Morales",32,45795247,"Srecetario general");
+        Paciente p2 = new Paciente(1,"Andrea","Benitez",20,4298483,"Pie quebrada",true);
         
         ArrayList<Turno> tr = new ArrayList<>();
         Date turnofec = new Date(2023,9,12);
@@ -126,9 +136,9 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Paciente pa1 = new Paciente(1,"Luciano","Palidini",42984283,"Mano quebrada");
-        Secretario s1 = new Secretario(1,"Victora","Morales",45795247,"Srecetario general");
-        Paciente pa2 = new Paciente(2,"Andrea","Benitez",4298483,"Pie quebrada");
+        Paciente pa1 = new Paciente(1,"Luciano","Palidini",24,42984283,"Mano quebrada",true);
+        Secretario s1 = new Secretario(1,"Victora","Morales",35,45795247,"Srecetario general");
+        Paciente pa2 = new Paciente(2,"Andrea","Benitez",70,4298483,"Pie quebrada",true);
         
         
         ArrayList<Turno> tr1 = new ArrayList<>();
@@ -137,23 +147,22 @@ public class vista extends javax.swing.JFrame {
         
         ArrayList<Turno> tr2 = new ArrayList<>();
         
-        tr2.add(new Turno(1,new Date(2023,10,23),new Paciente(3,"Luciano","Marti",42276446,"Dolor en el pecho"),s1));
-        tr2.add(new Turno(2,new Date(2023,10,23),new Paciente(4,"Danilo","Graf",42483892,"Falta de aire"),s1));
-        
+        tr2.add(new Turno(1,new Date(2023,10,23),new Paciente(3,"Luciano","Marti",25,42276446,"Dolor en el pecho",true),s1));
+        tr2.add(new Turno(2,new Date(2023,10,23),new Paciente(4,"Danilo","Graf",60,42483892,"Falta de aire",true),s1));
         ArrayList<Turno> tr3 = new ArrayList<>();
         
-        tr3.add(new Turno(1,new Date(2023,11,12),new Paciente(5,"Romina","Caceres",42341743,"pierna rota"),s1));
-        tr3.add(new Turno(2,new Date(2023,11,12),new Paciente(6,"Satoru","Gojo",32145423,"vino de onda"),s1));
+        tr3.add(new Turno(1,new Date(2023,11,12),new Paciente(5,"Romina","Caceres",36,42341743,"pierna rota",true),s1));
+        tr3.add(new Turno(2,new Date(2023,11,12),new Paciente(6,"Satoru","Gojo",29,32145423,"vino de onda",true),s1));
         
         ArrayList<Turno> tr4 = new ArrayList<>();
         
-        tr4.add(new Turno(1,new Date(2023,11,12),new Paciente(7,"Sebastian","Kus",541243521,"mano rota"),s1));
-        tr4.add(new Turno(2,new Date(2023,11,12),new Paciente(8,"Alex","Caniggia",32145423,"re falopa"),s1));
+        tr4.add(new Turno(1,new Date(2023,11,12),new Paciente(7,"Sebastian","Kus",21,541243521,"mano rota",true),s1));
+        tr4.add(new Turno(2,new Date(2023,11,12),new Paciente(8,"Alex","Caniggia",20,32145423,"re falopa",true),s1));
         
         ArrayList<Turno> tr5 = new ArrayList<>();
         
-        tr5.add(new Turno(1,new Date(2023,11,12),new Paciente(9,"Marcos","DiCamilo",42341743,"pierna rota"),s1));
-        tr5.add(new Turno(2,new Date(2023,11,12),new Paciente(10,"Yuuji","Itadori",32145423,"vino de onda"),s1));
+        tr5.add(new Turno(1,new Date(2023,11,12),new Paciente(9,"Marcos","DiCamilo",25,42341743,"pierna rota",true),s1));
+        tr5.add(new Turno(2,new Date(2023,11,12),new Paciente(10,"Yuuji","Itadori",19,32145423,"vino de onda",true),s1));
         
         
         
@@ -183,8 +192,8 @@ public class vista extends javax.swing.JFrame {
         especialidades2.add(esp5);
 
         
-        Profesional p1 = new Profesional(1,"Luciano","Araujo",42984283,"1542dfs",especialidades1);
-        Profesional p2 = new Profesional(2,"Victoria","Morales",1541214,"12dfs",especialidades2);
+        Profesional p1 = new Profesional(1,"Luciano","Araujo",38,42984283,"1542dfs",especialidades1);
+        Profesional p2 = new Profesional(2,"Victoria","Morales",40,1541214,"12dfs",especialidades2);
         
         ArrayList<Profesional> profesionales = new ArrayList<Profesional>();
         profesionales.add(p1);
@@ -206,6 +215,36 @@ public class vista extends javax.swing.JFrame {
         
   
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Paciente> pacientes = new ArrayList<Paciente>();
+        
+        pacientes.add(new Paciente(3,"Luciano","Marti",25,42276446,"Dolor en el pecho",false,"INSSSEP"));
+        pacientes.add(new Paciente(4,"Danilo","Graf",68,42483892,"Falta de aire",true));
+        pacientes.add(new Paciente(5,"Romina","Caceres",70,42341743,"pierna rota",true,"INSSSEP"));
+        pacientes.add(new Paciente(6,"Satoru","Gojo",28,32145423,"vino de onda",true)); 
+        pacientes.add(new Paciente(7,"Sebastian","Kus",69,541243521,"mano rota",false));
+        pacientes.add(new Paciente(8,"Alex","Caniggia",70,32145423,"re falopa",true,"INSSSEP"));
+        pacientes.add(new Paciente(9,"Marcos","DiCamilo",71,42341743,"pierna rota",true,"INSSSEP"));
+        pacientes.add(new Paciente(10,"Yuuji","Itadori",80,32145423,"vino de onda",false,"INSSSEP"));
+        
+        
+        
+        for(Paciente p: pacientes){
+            if(p.getEdad() > 65 && p.getActivo() && p.getObrasocial().toUpperCase().equals("INSSSEP")){
+                System.out.println("El Paciente: "+ p.getNombre()+" "+ p.getApellido()+ " Esta activo y tiene " + p.getObrasocial() );
+            }
+            
+        
+        }   
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     /**
      * @param args the command line arguments

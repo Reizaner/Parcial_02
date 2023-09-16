@@ -12,10 +12,39 @@ package parcial_02;
 public class Paciente extends Persona {
     
     private String dolencia;
+    private Boolean activo;
+    private String obrasocial;
 
-    public Paciente(int id, String nombre, String apellido, int dni, String dolencia) {
-        super(id,nombre, apellido, dni);
+    public Paciente(int id, String nombre, String apellido,int edad, int dni, String dolencia, Boolean ac) {
+        super(id,nombre, apellido,edad, dni);
         this.dolencia = dolencia;
+        this.activo = ac;
+        this.obrasocial = "Particular";
+    }
+    
+    public Paciente(int id, String nombre, String apellido,int edad, int dni, String dolencia, Boolean ac,String ob) {
+        super(id,nombre, apellido,edad, dni);
+        this.dolencia = dolencia;
+        this.activo = ac;
+        this.obrasocial = ob;
+    }
+
+    public String getObrasocial() {
+        return obrasocial;
+    }
+
+    public void setObrasocial(String obrasocial) {
+        this.obrasocial = obrasocial;
+    }
+
+    
+    
+    public Boolean getActivo() {
+        return activo;                  
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
     

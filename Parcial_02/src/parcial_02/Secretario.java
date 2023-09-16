@@ -13,8 +13,8 @@ public class Secretario extends Persona {
     
     private String rango;
 
-    public Secretario(int id, String nombre, String apellido, int dni, String rango) {
-        super(id, nombre, apellido, dni);
+    public Secretario(int id, String nombre, String apellido,int edad, int dni, String rango) {
+        super(id, nombre, apellido,edad, dni);
         this.rango = rango;
 
     }
