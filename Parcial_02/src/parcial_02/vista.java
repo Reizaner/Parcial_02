@@ -242,6 +242,42 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        int cantCamas = 0;
+        int cantTeles = 0;
+        ArrayList<Recurso> recursos = new ArrayList<Recurso>();
+        ArrayList<String> camas = new ArrayList<String>();
+        ArrayList<String> televisores = new ArrayList<String>();
+        camas.add("una plaza");
+        camas.add("media plaza");
+        camas.add("dos plaza");
+        camas.add("una plaza");
+        camas.add("una plaza");
+        televisores.add("Smart TV 45'");
+        televisores.add("Plasma de 45'");
+        televisores.add("Televisor led 32'");
+        televisores.add("Smart TV 24'");
+        televisores.add("Plasma de 24'");
+        
+        
+        recursos.add(new Recurso("Muebles","Camas",camas));
+        recursos.add(new Recurso("Electrodomesticos","Televisores",televisores ));
+        
+        
+        for(Recurso r:recursos){
+            if(r.getClasificacion().toLowerCase().equals("muebles") && r.getSubclasificacion().toLowerCase().equals("camas")){
+                for(String c:r.getRecurso()){
+                    if(c.toLowerCase().equals("una plaza")){
+                        cantCamas++;
+                    }
+                }
+            }
+            if(r.getClasificacion().toLowerCase().equals("electrodomesticos") && r.getSubclasificacion().toLowerCase().equals("televisores")){
+                cantTeles = r.getRecurso().size();
+            }
+        }
+        
+        System.out.println("La cantidad de Teles que hay en el edificio es de: "+ cantTeles);
+        System.out.println("La cantidad de Camas de una plaza que hay en el edificio es de: "+ cantCamas);
         
         
     }//GEN-LAST:event_jButton4ActionPerformed
