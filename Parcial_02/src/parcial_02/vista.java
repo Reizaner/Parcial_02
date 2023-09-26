@@ -97,37 +97,41 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        /*Instancio un array de la clase Especialidad y luego dos objetos de la clase Especialidad y por ultimo a estas dos ultimas la añado al Array*/
         ArrayList<Especialidad> especialidades = new ArrayList<Especialidad>();
         Especialidad esp1 = new Especialidad(191,"Radiologia");
-        Especialidad esp2 = new Especialidad(101,"Cardiologia");
-        Especialidad esp3 = new Especialidad(100,"Pediatria");
+        Especialidad esp2 = new Especialidad(131,"Neumolologia");
         especialidades.add(esp1);
         especialidades.add(esp2);
-        especialidades.add(esp3);
-        
-        Paciente p1 = new Paciente(1,"Luciano","Araujo",21,42984283,"Mano quebrada",true);
+
+        /*Intanciacion de los objetos tipo Paciente y Secretario*/
+        Paciente p1 = new Paciente(1,"Alberto","Lopez",21,27439097,"Mano quebrada",true);
         Secretario s1 = new Secretario(1,"Victora","Morales",32,45795247,"Srecetario general");
-        Paciente p2 = new Paciente(1,"Andrea","Benitez",20,4298483,"Pie quebrada",true);
+        Paciente p2 = new Paciente(1,"Alberto","Lopez",20,27439097,"Pie quebrada",true);
         
-        ArrayList<Turno> tr = new ArrayList<>();
+        /*Instancio dos arraylist de tipo turno y luego instancion un objeto tipo fecha y por ultimo añado los paciente anteriomente instanciados a sus respectivos arrays*/
+        ArrayList<Turno> tr1 = new ArrayList<>();
+        ArrayList<Turno> tr2 = new ArrayList<>();
         Date turnofec = new Date(2023,9,12);
-        tr.add(new Turno(1,turnofec,p1,s1));
-        tr.add(new Turno(2,turnofec,p2,s1));
+        tr1.add(new Turno(1,turnofec,p1,s1));
+        tr2.add(new Turno(1,turnofec,p2,s1));
         
-        esp1.setT(tr);
-        Date consulta = new Date(2023,9,12);
+        /*Los arrays anteriormente creados de turnos ahora mediente el metodo set que esta en la clase especialidad les doy valor*/
+        esp1.setT(tr1);
+        esp2.setT(tr2);
         
-        /*Para listar los turno*/
-        for(int i = 0; i < especialidades.size();i++){
-            if(especialidades.get(i).getId() == 191){
-                System.out.println("La especialidad: "+especialidades.get(i).getEsp());
-                for(Turno t:especialidades.get(i).getT()){
-                    if(t.getFecha().equals(consulta)){
-                        System.out.println("Tiene los turnos: "+t.getId()+ " y es de: "+t.getP().getNombre());
+        /*Con un for each en el arraylist de especialidades recorro para asi poder acceder a cada arraylist de turno que tiene cada especialidad*/
+        for(Especialidad e : especialidades){
+            /*Luego otra vez con un for each recorro el arraylist que esta adentro de cada especialidad de turnos y mediante un condicional traigo la peticion y la imprimo por pantalla*/
+                for(Turno t: e.getT()){
+                    if(t.getP().getDni() == 27439097){
+                        System.out.println(t.getP().getApellido() + " "+ t.getP().getNombre()+ " Tiene el turno "+ t.getId() + " El turno lo agendo: "+ t.getS().getNombre());
                     } 
                 }
+                System.out.println("De la especialidad "+ e.getEsp() );
+                System.out.println("--------------------------------------");
             }
-        }
+        
         
         
         
@@ -136,19 +140,26 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        /*EN ESTE EJERCICIO INSTANCIE DE DOS MANERA*/
+        
+        /*ESTA INSTANCIA DE PACIENTES LA USO SOLO PARA EL PRIMER ARRAYLIST DE TURNO*/
         Paciente pa1 = new Paciente(1,"Luciano","Palidini",24,42984283,"Mano quebrada",true);
         Secretario s1 = new Secretario(1,"Victora","Morales",35,45795247,"Srecetario general");
         Paciente pa2 = new Paciente(2,"Andrea","Benitez",70,4298483,"Pie quebrada",true);
         
-        
+        /*AQUI AGREGO LO ANTERIOR AL ARRAYLIST*/
         ArrayList<Turno> tr1 = new ArrayList<>();
         tr1.add(new Turno(1,new Date(2023,9,12),pa1,s1));
         tr1.add(new Turno(2,new Date(2023,9,12),pa2,s1));
         
+        /*ESTA ES EL SEGUNTO TIPO DE INSTANCIA QUE HAGO (SIMPLEMENTE LA HAGO AL MISMO TIMEPO QUE AGREGO AL ARRAYlIST)*/
+        
+        /*INTANCIO UN ARRAYLIST DE TURNO Y LUEGO LE AGREGO VALORES Y DENTRO DE CADA ADD ESTOY INSTANCIANDO UN OBJETO TIPO PACIENTE */
         ArrayList<Turno> tr2 = new ArrayList<>();
         
         tr2.add(new Turno(1,new Date(2023,10,23),new Paciente(3,"Luciano","Marti",25,42276446,"Dolor en el pecho",true),s1));
         tr2.add(new Turno(2,new Date(2023,10,23),new Paciente(4,"Danilo","Graf",60,42483892,"Falta de aire",true),s1));
+        
         ArrayList<Turno> tr3 = new ArrayList<>();
         
         tr3.add(new Turno(1,new Date(2023,11,12),new Paciente(5,"Romina","Caceres",36,42341743,"pierna rota",true),s1));
@@ -166,8 +177,10 @@ public class vista extends javax.swing.JFrame {
         
         
         
-        
+        /*INSTANCIACION DE DOS ARRAYLIST DE ESPEACIALIDADES QUE PERTENECERAN A SUS RESPECTIVOS DOCTORES*/
         ArrayList<Especialidad> especialidades1 = new ArrayList<Especialidad>();
+        ArrayList<Especialidad> especialidades2 = new ArrayList<Especialidad>();
+        
         Especialidad esp1 = new Especialidad(191,"Radiologia");
         Especialidad esp2 = new Especialidad(101,"Cardiologia");
         Especialidad esp3 = new Especialidad(100,"Pediatria");
@@ -181,9 +194,9 @@ public class vista extends javax.swing.JFrame {
         especialidades1.add(esp1);
         especialidades1.add(esp2);
         especialidades1.add(esp3);
+                
+
         
-        
-        ArrayList<Especialidad> especialidades2 = new ArrayList<Especialidad>();
         
         esp4.setT(tr4);
         esp5.setT(tr5);
